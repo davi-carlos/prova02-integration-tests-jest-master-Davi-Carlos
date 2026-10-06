@@ -39,52 +39,84 @@ After that you should see a `./output` folder with some `HTML` reports.
  - [ServeRest](https://serverest.dev/#/)
  - [ServeRest - Datadog](https://p.datadoghq.eu/sb/421fcfee-35ec-11ee-b87f-da7ad0900005-2aaf85264a89d11b7001bcab452a266e?refresh_mode=sliding&theme=light&tpl_var_env%5B0%5D=serverest.dev&from_ts=1699931511294&to_ts=1699932411294&live=true)
 
- Descrição dos Testes
-Cenário 1: Listar usuários
+# 🧪 Prova 02 - Testes de Integração com Jest e PactumJS
 
-Endpoint: GET /users?page=2
+Projeto desenvolvido para validação de endpoints da API pública **ReqRes**, utilizando **Jest**, **PactumJS**, **GitHub Actions** e **SonarCloud**.
 
-Objetivo: Verificar se a API retorna a lista de usuários da página 2.
+## 📋 Objetivo
 
-Validações:
+Realizar testes de integração em uma API REST, validando operações de consulta, criação, atualização e remoção de usuários, garantindo o funcionamento correto dos endpoints e das respostas retornadas pela API.
 
-Status HTTP 200 (OK).
-Cenário 2: Buscar usuário por ID
+## 🚀 Tecnologias Utilizadas
 
-Endpoint: GET /users/2
+- TypeScript
+- Jest
+- PactumJS
+- GitHub Actions
+- SonarCloud
+- ReqRes API
 
-Objetivo: Verificar se a API retorna corretamente o usuário de ID 2.
+## ✅ Cenários de Teste Implementados
 
-Validações:
+### 1. Listar usuários
 
-Status HTTP 200 (OK).
-Usuário retornado possui id = 2.
-Cenário 3: Criar usuário
+**Endpoint:** `GET /users?page=2`
 
-Endpoint: POST /users
+**Objetivo:** Verificar se a API retorna corretamente a lista de usuários da página informada.
 
-Objetivo: Verificar a criação de um novo usuário.
+**Validação:**
+- Status HTTP `200 OK`.
 
-Validações:
+---
 
-Status HTTP 201 (Created).
-Os dados enviados (name e job) são retornados pela API.
-Cenário 4: Atualizar usuário
+### 2. Buscar usuário por ID
 
-Endpoint: PUT /users/2
+**Endpoint:** `GET /users/2`
 
-Objetivo: Verificar a atualização dos dados de um usuário existente.
+**Objetivo:** Verificar se um usuário específico pode ser consultado.
 
-Validações:
+**Validações:**
+- Status HTTP `200 OK`.
+- Usuário retornado possui ID igual a `2`.
 
-Status HTTP 200 (OK).
-Nome e cargo atualizados são retornados pela API.
-Cenário 5: Deletar usuário
+---
 
-Endpoint: DELETE /users/2
+### 3. Criar usuário
 
-Objetivo: Verificar a exclusão de um usuário.
+**Endpoint:** `POST /users`
 
-Validações:
+**Objetivo:** Validar a criação de um novo usuário.
 
-Status HTTP 204 (No Content).
+**Validações:**
+- Status HTTP `201 Created`.
+- Retorno dos campos enviados (`name` e `job`).
+
+---
+
+### 4. Atualizar usuário
+
+**Endpoint:** `PUT /users/2`
+
+**Objetivo:** Validar a atualização de informações de um usuário existente.
+
+**Validações:**
+- Status HTTP `200 OK`.
+- Dados atualizados retornados na resposta.
+
+---
+
+### 5. Excluir usuário
+
+**Endpoint:** `DELETE /users/2`
+
+**Objetivo:** Validar a remoção de um usuário.
+
+**Validação:**
+- Status HTTP `204 No Content`.
+
+## ▶️ Executando o Projeto
+
+Instale as dependências:
+
+```bash
+npm install
